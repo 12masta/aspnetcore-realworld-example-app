@@ -20,6 +20,11 @@ namespace Conduit.Features.Users
             return await _mediator.Send(command);
         }
 
+        [HttpDelete]
+        public async Task<UserEnvelope> Delete([FromBody] Delete.Command command)
+        {
+            return await _mediator.Send(command);
+        }
 
         [HttpPost("login")]
         public async Task<UserEnvelope> Login([FromBody] Login.Command command)
