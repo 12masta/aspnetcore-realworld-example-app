@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using System;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 
 namespace Conduit
@@ -15,7 +16,7 @@ namespace Conduit
             var host = new WebHostBuilder()
                 .UseConfiguration(config)
                 .UseKestrel()
-                .UseUrls($"http://+:5000")
+                .UseUrls("http://0.0.0.0:" + Environment.GetEnvironmentVariable("PORT"))
                 .UseStartup<Startup>()
                 .Build();
 
